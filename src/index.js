@@ -72,6 +72,30 @@ class LinkedList {
     }
     return false;
   }
+  find(value) {
+    let currNode = this.head;
+    let index = 0;
+    while (index < this.size()) {
+      if (currNode.value === value) {
+        return index;
+      }
+      currNode = currNode.nextNode;
+      index++;
+    }
+    return null;
+  }
+  toString() {
+    let string = "";
+    let currNode = this.head;
+    let index = 0;
+    while (index < this.size()) {
+      string += "( " + currNode.value + " ) -> ";
+      currNode = currNode.nextNode;
+      index++;
+    }
+    string += null;
+    return string;
+  }
 }
 
 const listOne = new LinkedList();
@@ -80,4 +104,6 @@ listOne.append("f");
 listOne.append("g");
 console.log(listOne);
 console.log(listOne.size());
-console.log(listOne.contains("e"));
+// console.log(listOne.contains("f"));
+// console.log(listOne.find("f"));
+console.log(listOne.toString());
