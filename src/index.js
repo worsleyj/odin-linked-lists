@@ -43,6 +43,13 @@ class LinkedList {
     }
     return currNode;
   }
+  pop() {
+    const newTail = this.at(this.size() - 2);
+    const oldTail = newTail.nextNode;
+    this.tail = newTail;
+    newTail.nextNode = null;
+    return oldTail;
+  }
   size() {
     if (this.head === null) return 0;
     let currNode = this.head;
@@ -56,9 +63,10 @@ class LinkedList {
 }
 
 const listOne = new LinkedList();
-listOne.prepend("e");
-listOne.prepend("f");
-listOne.prepend("g");
+listOne.append("e");
+listOne.append("f");
+listOne.append("g");
+console.log(listOne.pop());
 console.log(listOne);
 console.log(listOne.size());
 console.log(listOne.at(2));
