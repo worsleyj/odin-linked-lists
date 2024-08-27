@@ -22,7 +22,17 @@ class LinkedList {
       this.tail.nextNode = newNode;
       this.tail = newNode;
     }
-    console.log(this.tail);
+  }
+  prepend(value) {
+    const newNode = new Node();
+    newNode.value = value;
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.nextNode = this.head;
+      this.head = newNode;
+    }
   }
   size() {
     if (this.head === null) return 0;
@@ -37,8 +47,8 @@ class LinkedList {
 }
 
 const listOne = new LinkedList();
-listOne.append("e");
-listOne.append("f");
-listOne.append("g");
+listOne.prepend("e");
+listOne.prepend("f");
+listOne.prepend("g");
 console.log(listOne);
 console.log(listOne.size());
