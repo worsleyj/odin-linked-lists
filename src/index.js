@@ -34,6 +34,14 @@ class LinkedList {
       this.head = newNode;
     }
   }
+  at(index) {
+    let currNode = this.head;
+    while (index > 0) {
+      currNode = currNode.nextNode;
+      index--;
+    }
+    return currNode;
+  }
   size() {
     if (this.head === null) return 0;
     let currNode = this.head;
@@ -52,3 +60,4 @@ listOne.prepend("f");
 listOne.prepend("g");
 console.log(listOne);
 console.log(listOne.size());
+console.log(listOne.at(0));
