@@ -60,13 +60,24 @@ class LinkedList {
     }
     return size;
   }
+  contains(value) {
+    let currNode = this.head;
+    let index = this.size();
+    while (index > 0) {
+      if (currNode.value === value) {
+        return true;
+      }
+      currNode = currNode.nextNode;
+      index--;
+    }
+    return false;
+  }
 }
 
 const listOne = new LinkedList();
 listOne.append("e");
 listOne.append("f");
 listOne.append("g");
-console.log(listOne.pop());
 console.log(listOne);
 console.log(listOne.size());
-console.log(listOne.at(2));
+console.log(listOne.contains("e"));
