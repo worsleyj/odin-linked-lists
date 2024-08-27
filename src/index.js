@@ -35,6 +35,7 @@ class LinkedList {
     }
   }
   at(index) {
+    if (index > this.size()) return null;
     let currNode = this.head;
     while (index > 0) {
       currNode = currNode.nextNode;
@@ -60,4 +61,4 @@ listOne.prepend("f");
 listOne.prepend("g");
 console.log(listOne);
 console.log(listOne.size());
-console.log(listOne.at(0));
+console.log(listOne.at(2));
